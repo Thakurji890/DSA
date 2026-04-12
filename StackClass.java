@@ -1,60 +1,73 @@
 package DSA;
 
-import java.util.ArrayList;
-
 import java.util.*;;
 
 public class StackClass {
-    // This is for fixed array stack implemetation
-
-    // public static void main(String[] args) {
-    // StackArray stack = new StackArray();
-    // stack.push(10);
-    // stack.push(20);
-    // stack.peek();
-    // stack.pop();
-    // stack.peek();
-    // }
-
-    // This is variable linked list stack implementation
-
-    // public static void main(String[] args) {
-    // StackLinked stack = new StackLinked();
-    // stack.push(10);
-    // stack.push(20);
-    // stack.push(30);
-    // stack.display();
-    // stack.pop();
-    // stack.display();
-    // stack.peek();
-    // }
-
-    // This is variable array list stack implementation
-
-    // public static void main(String[] args) {
-    // StackArrayList stack = new StackArrayList();
-    // stack.push(10);
-    // stack.push(30);
-    // stack.push(40);
-    // stack.display();
-    // stack.peek();
-    // stack.pop();
-    // stack.display();
-    // stack.peek();
-    // }
-
-    // This is for Stack Frameworks
 
     public static void main(String[] args) {
+
+        // This is for fixed array stack implemetation
+        // StackArray stack = new StackArray();
+        // stack.push(10);
+        // stack.push(20);
+        // stack.peek();
+        // stack.pop();
+        // stack.peek();
+
+        // This is variable linked list stack implementation
+        // StackLinked stack = new StackLinked();
+        // stack.push(10);
+        // stack.push(20);
+        // stack.push(30);
+        // stack.display();
+        // stack.pop();
+        // stack.display();
+        // stack.peek();
+
+        // This is variable array list stack implementation
+        // StackArrayList stack = new StackArrayList();
+        // stack.push(10);
+        // stack.push(30);
+        // stack.push(40);
+        // stack.display();
+        // stack.peek();
+        // stack.pop();
+        // stack.display();
+        // stack.peek();
+
+        // This is for Stack Frameworks
         Stack<Integer> stack = new Stack<Integer>();
         stack.push(10);
         stack.push(20);
         stack.push(33);
         System.out.println(stack.isEmpty());
-        stack.pop();
-        for (int num : stack) {
-            System.out.println(num);
+        // stack.pop();
+        stack.push(2);
+        pushAtBottom(1000, stack);
+        reverse(stack);
+        while (!stack.isEmpty()) {
+            System.out.println(stack.peek());
+            stack.pop();
         }
+    }
+
+    public static void pushAtBottom(int data, Stack<Integer> stack) {
+        if (stack.isEmpty()) {
+            stack.push(data);
+            return;
+        }
+
+        int top = stack.pop();
+        pushAtBottom(data, stack);
+        stack.push(top);
+    }
+
+    public static void reverse(Stack<Integer> stack) {
+        if (stack.isEmpty())
+            return;
+        int top = stack.pop();
+        reverse(stack);
+        pushAtBottom(top, stack);
     }
 }
 
