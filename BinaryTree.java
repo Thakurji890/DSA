@@ -1,6 +1,5 @@
 package DSA;
 
-import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -20,6 +19,11 @@ public class BinaryTree {
 
         System.out.println("\n -- Level Wise Traversal --");
         var.levelTravel(root);
+
+        System.out.println("\nTotal Number of nodes : " + var.totalNumOfNodes(root));
+        System.out.println("\nSum of nodes : " + var.sumOfNode(root));
+        System.out.println("\nHeight of Tree : " + var.heightOfTree(root));
+        System.out.println();
     }
 }
 
@@ -97,4 +101,32 @@ class Tree {
         }
     }
 
+    int totalNumOfNodes(Node root) {
+        if (root == null)
+            return 0;
+
+        int leftNodes = totalNumOfNodes(root.left);
+        int rightNodes = totalNumOfNodes(root.right);
+
+        return leftNodes + rightNodes + 1;
+
+    }
+
+    int sumOfNode(Node root) {
+        if (root == null)
+            return 0;
+        int leftSum = totalNumOfNodes(root.left);
+        int rightSum = totalNumOfNodes(root.right);
+
+        return leftSum + rightSum + root.data;
+    }
+
+    int heightOfTree(Node root) {
+        if (root == null)
+            return 0;
+        int leftHeight = heightOfTree(root.left);
+        int rightHeight = heightOfTree(root.right);
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
 }
