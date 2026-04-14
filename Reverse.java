@@ -34,7 +34,7 @@ public class Reverse {
             left++;
             right--;
         }
-        String reversed = new String(strChar);
-        System.out.println(reversed);
+
+        System.out.println(new String(strChar));
     }
 }
