@@ -8,8 +8,12 @@ public class BFS {
     public static void main(String[] args) {
         graph var = new graph();
         var.addEdge();
+
         var.bfs();
         System.out.println();
+        var.dfs(var.graph, 0, new boolean[7]);
+        System.out.println();
+
     }
 
 }
@@ -82,5 +86,23 @@ class graph {
                 }
             }
         }
+    }
+
+    void dfs(ArrayList<Edge> graph[], int curr, boolean[] visited) {
+        System.out.print(curr + " ");
+        visited[curr] = true;
+        for (int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
+            if (visited[e.dest] == false)
+                dfs(graph, e.dest, visited);
+        }
+    }
+
+    void allPaths() {
+        // All paths from source to destination
+        // src = 0 , tar = 5
+
+        // using modified dfs
+
     }
 }
