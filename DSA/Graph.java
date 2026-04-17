@@ -13,7 +13,7 @@ public class Graph {
 
 class GraphImplementation {
     int ver = 4;
-    @SuppressWarnings("unchecked")
+    // @SuppressWarnings("unchecked")
     ArrayList<Edge> graph[] = new ArrayList[ver];
 
     class Edge {
