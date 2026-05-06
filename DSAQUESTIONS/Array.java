@@ -1,0 +1,112 @@
+package DSAQUESTIONS;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Array {
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+        // secondLargest(arr);
+        // uniqueElement(arr);
+        // nRotations(arr, 3);
+        moveZeros();
+    }
+
+    public static void secondLargest(int[] arr) {
+        // Option 1 Solution
+        // int largest = arr[0];
+        // for (int i = 0; i < arr.length; i++) {
+        // if (arr[i] > largest)
+        // largest = arr[i];
+        // }
+
+        // int secondLarge = -1;
+        // for (int i = 0; i < arr.length; i++) {
+        // if (arr[i] > secondLarge && arr[i] != largest)
+        // secondLarge = arr[i];
+        // }
+
+        int largest = arr[0], secondLarge = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                secondLarge = largest;
+                largest = arr[i];
+            } else if (arr[i] < largest && arr[i] > secondLarge)
+                secondLarge = arr[i];
+        }
+        System.out.println("Largest Element : " + largest + " Second Largest Element : " + secondLarge);
+        // same will for second smallest
+    }
+
+    public static void uniqueElement(int[] arr) {
+        // brute force approach
+        // Set<Integer> set = new HashSet<>(); // O(nlog(n)) + O(N)
+        // for (int i = 0; i < arr.length; i++) {
+        // set.add(arr[i]);
+        // }
+        // int idx = 0;
+        // for (int element : set) {
+        // arr[idx++] = element;
+        // }
+        // for (int i = 0; i < set.size(); i++) {
+        // System.out.print(arr[i] + " ");
+        // }
+
+        // Optimal Approach
+        // Two pointer
+        int j = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[j]) {
+                arr[j + 1] = arr[i];
+                j++;
+            }
+        }
+        for (int i = 0; i < j + 1; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void nRotations(int[] arr, int k) {
+        k = k % arr.length;
+        // while (k-- > 0) {
+        // int temp = arr[0];
+        // for (int i = 1; i < arr.length; i++) {
+        // arr[i - 1] = arr[i];
+        // }
+        // arr[arr.length - 1] = temp;
+        // }
+
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, arr.length - 1);
+        reverse(arr, 0, arr.length - 1);
+
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
+
+    // Now for more optimal solution of rotation we actualy do is reverse
+    // element from k places and also we reverse the rest of the element
+    // and again reverse the whole array
+    // like --
+    // reverse(a , a+d)
+    // reverse(a + d , a +n )
+    // reverse(a , a + n)
+
+    // Time O(2N) -> space - O(1)
+
+    public static void reverse(int[] arr, int left, int right) {
+        while (left < right) {
+            int temp = arr[left];
+            arr[left++] = arr[right];
+            arr[right--] = temp;
+        }
+    }
+
+    public static void moveZeros() {
+        int[] arr = { 1, 0, 2, 3, 2, 0, 0, 4, 5, 1 };
+        int left = 0, right = arr.length;
+
+    }
+
+}
