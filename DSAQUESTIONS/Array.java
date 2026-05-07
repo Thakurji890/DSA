@@ -1,5 +1,6 @@
 package DSAQUESTIONS;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +10,10 @@ public class Array {
         // secondLargest(arr);
         // uniqueElement(arr);
         // nRotations(arr, 3);
-        moveZeros();
+        // moveZeros();
+        int[] arr1 = { 1, 1, 1, 2, 2, 3, 4, 5 };
+        int[] arr2 = { 2, 3, 4, 4, 5, 5, 6, 6 };
+        uniqueUnion(arr1, arr2);
     }
 
     public static void secondLargest(int[] arr) {
@@ -105,8 +109,85 @@ public class Array {
 
     public static void moveZeros() {
         int[] arr = { 1, 0, 2, 3, 2, 0, 0, 4, 5, 1 };
-        int left = 0, right = arr.length;
+        int i = -1;
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] == 0) {
+                i = j;
+                break;
+            }
+        }
 
+        if (i != -1) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] != 0) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    i++;
+                }
+            }
+        }
+        for (int val : arr) {
+            System.out.print(val + " ");
+        }
     }
 
+    public static void uniqueUnion(int[] arr1, int[] arr2) {
+        // Brute Force
+
+        // Set<Integer> set = new HashSet<>();
+
+        // for (int i = 0; i < arr1.length; i++) { // O(N)
+        // set.add(arr1[i]); // O(nlog(n))
+        // }
+        // for (int i = 0; i < arr2.length; i++) { // O(N)
+        // set.add(arr2[i]); // O(nlog(n))
+        // }
+
+        // for (Integer integer : set) {
+        // System.out.print(integer + " ");
+        // }
+        // System.out.println();
+
+        // Optimal Approach
+        // two Pointer
+        ArrayList<Integer> union = new ArrayList<>();
+        int n = arr1.length, m = arr2.length;
+        int i = 0, j = 0;
+
+        while (i < n && j < m) {
+            if (arr1[i] <= arr2[j]) {
+                // Only add if union is empty or the element is not a duplicate of the last
+                // added element
+                if (union.size() == 0 || union.get(union.size() - 1) != arr1[i]) {
+                    union.add(arr1[i]);
+                }
+                i++;
+            } else {
+                if (union.size() == 0 || union.get(union.size() - 1) != arr2[j]) {
+                    union.add(arr2[j]);
+                }
+                j++;
+            }
+        }
+
+        // Add remaining elements of arr1
+        while (i < n) {
+            if (union.get(union.size() - 1) != arr1[i]) {
+                union.add(arr1[i]);
+            }
+            i++;
+        }
+
+        // Add remaining elements of arr2
+        while (j < m) {
+            if (union.get(union.size() - 1) != arr2[j]) {
+                union.add(arr2[j]);
+            }
+            j++;
+        }
+        for (Integer integer : union) {
+            System.out.print(integer + " ");
+        }
+    }
 }
