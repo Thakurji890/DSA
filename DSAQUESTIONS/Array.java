@@ -13,7 +13,8 @@ public class Array {
         // moveZeros();
         int[] arr1 = { 1, 1, 1, 2, 2, 3, 4, 5 };
         int[] arr2 = { 2, 3, 4, 4, 5, 5, 6, 6 };
-        uniqueUnion(arr1, arr2);
+        // Union(arr1, arr2);
+        interSection(arr1, arr2);
     }
 
     public static void secondLargest(int[] arr) {
@@ -132,7 +133,7 @@ public class Array {
         }
     }
 
-    public static void uniqueUnion(int[] arr1, int[] arr2) {
+    public static void Union(int[] arr1, int[] arr2) {
         // Brute Force
 
         // Set<Integer> set = new HashSet<>();
@@ -187,6 +188,46 @@ public class Array {
             j++;
         }
         for (Integer integer : union) {
+            System.out.print(integer + " ");
+        }
+    }
+
+    public static void interSection(int[] arr1, int[] arr2) {
+        ArrayList<Integer> list = new ArrayList<>();
+        // present in both array
+
+        // brute force approach
+
+        // int[] visited = new int[arr2.length];
+
+        // for (int i = 0; i < arr1.length; i++) {
+        // for (int j = 0; j < arr2.length; j++) {
+        // if (arr1[i] == arr2[j] && visited[j] == 0) {
+        // list.add(arr2[j]);
+        // visited[j] = 1;
+        // break;
+        // }
+        // if (arr2[j] > arr1[i])
+        // break;
+        // }
+        // }
+
+        // Optimal
+        int n = arr1.length, m = arr2.length;
+        int i = 0, j = 0;
+
+        while (i < n && j < m) {
+            if (arr1[i] < arr2[j])
+                i++;
+            else if (arr2[j] < arr1[i])
+                j++;
+            else {
+                list.add(arr1[i]);
+                i++;
+                j++;
+            }
+        }
+        for (Integer integer : list) {
             System.out.print(integer + " ");
         }
     }
