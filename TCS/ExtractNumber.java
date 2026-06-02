@@ -9,6 +9,7 @@ public class ExtractNumber {
         extractFull(input);
         lineByLine(input);
         firstNumber(input);
+        loopMethod(input);
     }
 
     public static void extractFull(String str) {
@@ -39,6 +40,20 @@ public class ExtractNumber {
             System.out.println(firstNumber);
         } else {
             System.out.println("Number not found");
+        }
+    }
+
+    public static void loopMethod(String str) {
+        StringBuilder sb = new StringBuilder();
+        for (char ch : str.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                sb.append(ch);
+            } else if (sb.length() > 0) {
+                break;
+            }
+        }
+        if (sb.length() > 0) {
+            System.out.println(sb.toString());
         }
     }
 }
