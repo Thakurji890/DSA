@@ -3,8 +3,6 @@ package TCS;
 import java.util.ArrayList;
 import java.util.List;
 
-import DSAQUESTIONS.printNumber;
-
 //             1
 //         1       1
 //     1       2       1
