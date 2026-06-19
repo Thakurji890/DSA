@@ -19,11 +19,12 @@ public class sliding {
             for (List<Integer> num : slidingWindow(arr, k)) {
                 System.out.print(num + " ");
             }
+            System.out.println();
 
             for (Integer number : slidingMax(arr, k)) {
                 System.out.print(number + " ");
             }
-
+            System.out.println();
         }
     }
 
