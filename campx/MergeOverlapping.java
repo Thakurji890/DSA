@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MergeSort {
+public class MergeOverlapping {
     public static void main(String[] args) {
         int[][] intervals = {
                 { 1, 3 },
