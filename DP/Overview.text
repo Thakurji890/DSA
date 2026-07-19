@@ -1,0 +1,22 @@
+1. tabulation  -> buttom up
+2. Momaization -> Top down
+
+DP -- 1. Subproblem Overlapping
+            This means the problem can be broken down into smaller, 
+            similar subproblems, and the same subproblems are evaluated multiple times.
+
+            The fix: Instead of recalculating the same subproblem, you compute it once, store the result in a table or array, 
+            and look it up when needed later.
+            
+            The benefit: This changes slow, exponential-time algorithms into fast, linear-time algorithms.
+
+      2. Optimal Substructure
+            This means the overall optimal solution to the main problem can be found by combining the optimal solutions of its subproblems.
+            
+            The fix: By identifying how smaller choices build on top of each other, 
+            you can form a mathematical rule (called a recurrence relation) to link the states.
+            
+            The benefit: You can trust that building up local "best" choices will yield the global "best" answer.
+
+Memoaization -->
+dp [||||||]
