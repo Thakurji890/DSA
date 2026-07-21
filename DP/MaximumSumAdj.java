@@ -2,6 +2,8 @@ package DP;
 
 import java.util.Arrays;
 
+// House Robber question
+
 public class MaximumSumAdj {
     // Maximum sum of non- adjecent elements
 
