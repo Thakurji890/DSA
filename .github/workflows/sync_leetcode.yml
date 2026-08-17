@@ -15,6 +15,6 @@ jobs:
           github-token: ${{ github.token }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-          destination-folder: leetoce-problems # Optional: Change or remove this to put files in the root folder
+          destination-folder: leetcoce-problems # Optional: Change or remove this to put files in the root folder
           verbose: true
           commit-header: '[LeetCode Sync]'
