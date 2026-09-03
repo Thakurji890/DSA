@@ -19,6 +19,7 @@ Based on the folders in this repository, here is a breakdown of the contents:
 *   **Noukri**: Coding problems and solutions from Naukri (Coding Ninjas).
 *   **TCS**: TCS-specific interview prep and coding questions.
 *   **campx**: Practice problems from CampX.
+*   **Exercism** : Coding from Exercism plateform
 
 ### Daily Progress & Practice
 *   **Day1, Day2, Day4, Day5...**: Daily coding logs and specific day-to-day challenges.
