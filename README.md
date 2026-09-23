@@ -13,6 +13,7 @@ Based on the folders in this repository, here is a breakdown of the contents:
 *   **LinkedList**: Singly, Doubly, and Circular Linked List concepts and challenges.
 *   **Stack**: Stack data structure implementations and use-cases.
 *   **Tree**: Binary Trees, BSTs, and other tree-based problems.
+*   **Graph**: BSF, DSF problems
 
 ### Coding Platforms
 *   **LeetCode / leetcode-problems**: My solutions to various LeetCode problems.
