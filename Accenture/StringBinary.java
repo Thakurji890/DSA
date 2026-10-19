@@ -1,7 +1,5 @@
 package Accenture;
 
-import java.util.Stack;
-
 public class StringBinary {
 
     // Problem Statement:
